@@ -1,6 +1,8 @@
 /*
  * Miguel Camargo
  * ING SISTEMAS
+ * Sebastian Rojas
+ * ING SISTEMAS
  */
 package co.edu.uniminuto.GymEjb.entities;
 
