@@ -23,14 +23,20 @@ body {
 header {
   height: 10%;
   width: 100%;
-  background-color: dimgrey;
+  background-color: #383735;
+  font-family: arial black;
+  color: #ffffff;
+  text-align: center;
 }
 
 #menu {
   height: 85%;
   width: 10%;
-  background-color: darkgray;
+  background-color: #9A9898;
   float: left;
+  font-family: arial;
+  color: #ffffff;
+  font-size: small;
 }
 
 #opciones {
@@ -46,20 +52,25 @@ header {
 #pestanas {
   height: 10%;
   width: 90%;
-  background-color: blue;
+  background-color: #C34400;
   float: left;
+  font-family: arial;
+  color: #ffffff;
+  font-size: medium;
 }
 
 #marco {
   height: 75%;
   width: 90%;
-  background-color: aqua;
+  background-color: #EEEEEE;
   float: left;
+  color: #ffffff;
+  font-size: medium;
 }
 
 footer {
   height: 5%;
   width: 100%;
-  background-color: blueviolet;
+  background-color: #383735;
   float: left;
 }
