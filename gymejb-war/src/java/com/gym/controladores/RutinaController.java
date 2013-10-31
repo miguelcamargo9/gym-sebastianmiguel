@@ -4,28 +4,47 @@
  */
 package com.gym.controladores;
 
+import com.gym.entities.Rutina;
+import com.gym.modelos.rutinaModelo;
+import com.gym.session.RutinaFacade;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+
 /**
  *
  * @author Miguel
  */
 public class RutinaController {
   
-  public boolean validadarRutina(Integer idRutina, String nombreRutina) throws NullPointerException {
-    boolean msj = true;
-    int IdR;
-    String NoR; 
-    try {
-      IdR = idRutina;
-    } catch (NullPointerException ex) {
-      //msj = "El Id de la Categoria No Puede ser Vacio.";
-      msj = false;
+  rutinaModelo rutinaModel;
+  
+  public ArrayList<String> validadarRutina(Integer idRutina) {
+    boolean bandera;
+    ArrayList<String> rutinasCreadas = new ArrayList<String>();
+    try{
+      Rutina rutinaCreada = rutinaModel.buscarRutina(idRutina);
+      bandera = true;
+      rutinasCreadas.add("" + bandera);
+      rutinasCreadas.add("" + rutinaCreada.getId());
+      rutinasCreadas.add(rutinaCreada.getNombreRutina());
     }
-    try {
-      NoR = nombreRutina;
-    } catch (NullPointerException ex) {
-      msj = false;
-      //msj = "El Nombre de la Rutina No Puede ser Vacio.";
+    catch(Exception ex){
+      bandera = false;
+      rutinasCreadas.add("" + bandera);
     }
-    return msj;
+    return rutinasCreadas;
+  }
+  
+  public List<Rutina> getRutinas(){
+    return rutinaModel.rutinaLista();
+  }
+  
+  public void crearRutina(Rutina miRutina){
+    rutinaModel.crearRutina(miRutina);
   }
 }
