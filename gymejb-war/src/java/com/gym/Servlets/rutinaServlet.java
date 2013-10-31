@@ -4,7 +4,7 @@
  */
 package com.gym.Servlets;
 
-import com.gym.controladores.RutinaController;
+import com.gym.controladores.rutinaController;
 import com.gym.modelos.rutinaModelo;
 import com.gym.entities.Rutina;
 import java.io.IOException;
@@ -47,7 +47,7 @@ public class rutinaServlet extends HttpServlet {
   
   
   Rutina miRutina;
-  RutinaController rutinaController ;
+  rutinaController rutinaController ;
   String mensaje;
 
   protected void processRequest(HttpServletRequest request, HttpServletResponse response)
