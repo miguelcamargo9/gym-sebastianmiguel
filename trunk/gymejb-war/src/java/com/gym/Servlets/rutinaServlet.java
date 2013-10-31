@@ -114,14 +114,14 @@ public class rutinaServlet extends HttpServlet {
     Integer idRutina = Integer.parseInt(request.getParameter("idRutina"));
     String nombreRutina = request.getParameter("nombreRutina");
     rutinasCreadas = rutinaController.validadarRutina(idRutina);
-    if(rutinasCreadas.get(0).equals("true")){
+    if(rutinasCreadas.get(0).equals("false")){
       miRutina = new Rutina(idRutina);
       miRutina.setNombreRutina(nombreRutina);
       rutinaController.crearRutina(miRutina);
       mensaje = "Se ha Creado la Rutina con Exito";
     }
     else{
-      mensaje = "Error en Datos Verifique";
+      mensaje = rutinasCreadas.get(1);
     }
     try {
       processRequest(request, response);

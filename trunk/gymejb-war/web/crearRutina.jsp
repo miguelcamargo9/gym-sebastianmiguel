@@ -12,31 +12,32 @@
     <title>JSP Page</title>
   </head>
   <body>
-    <h1>Crear Rutina</h1>
     <form name="crearRutinaForm" action="rutinaServlet" method="POST">
-      <table>
-        <tr>
-          <td>
-            ID
-          </td>
-          <td>
-            <input type="text" name="idRutina" required>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Nombre
-          </td>
-          <td>
-            <input type="text" name="nombreRutina" required>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="2">
-            <button value="GUARDAR" >GUARDAR</button>   
-          </td>
-        </tr>
-      </table>
+      <fieldset><legend>Crear Rutina</legend>
+        <table>
+          <tr>
+            <td>
+              ID
+            </td>
+            <td>
+              <input type="text" name="idRutina" required>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Nombre
+            </td>
+            <td>
+              <input type="text" name="nombreRutina" required>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <button value="GUARDAR" >GUARDAR</button>   
+            </td>
+          </tr>
+        </table>
+      </fieldset>
     </form>
   </body>
 </html>
