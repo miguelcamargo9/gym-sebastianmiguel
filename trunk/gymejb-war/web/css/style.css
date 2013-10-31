@@ -1,0 +1,65 @@
+/* 
+    Document   : demostyle
+    Created on : 26/09/2013, 10:07:43 AM
+    Author     : sebastianr
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+  display: block;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+}
+
+header {
+  height: 10%;
+  width: 100%;
+  background-color: dimgrey;
+}
+
+#menu {
+  height: 85%;
+  width: 10%;
+  background-color: darkgray;
+  float: left;
+}
+
+#opciones {
+  height: 85%;
+  width: 10%;
+  background-color: dimgray;
+  opacity: 0.2;
+  position: absolute;
+  z-index:2;
+  margin-left: 10%;
+}
+
+#pestanas {
+  height: 10%;
+  width: 90%;
+  background-color: blue;
+  float: left;
+}
+
+#marco {
+  height: 75%;
+  width: 90%;
+  background-color: aqua;
+  float: left;
+}
+
+footer {
+  height: 5%;
+  width: 100%;
+  background-color: blueviolet;
+  float: left;
+}
