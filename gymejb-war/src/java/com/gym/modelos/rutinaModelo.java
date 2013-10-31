@@ -9,7 +9,6 @@ import com.gym.session.RutinaFacade;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.ejb.EJB;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -30,7 +29,7 @@ public class rutinaModelo {
     return rutinaFacade.findAll();
   }
   
-  public Rutina buscarRutina(int idRutina){
+  public Rutina buscarRutina(Integer idRutina){
     return rutinaFacade.find(idRutina);
   }
 
