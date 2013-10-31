@@ -35,8 +35,6 @@ public class rutinaController {
     return rutinasCreadas;
   }
   
-  
-  
   public List<Rutina> getRutinas() {
     return rutinaModel.rutinaLista();
   }
