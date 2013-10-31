@@ -9,6 +9,7 @@ import com.gym.modelos.rutinaModelo;
 import com.gym.entities.Rutina;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -46,15 +47,15 @@ public class rutinaServlet extends HttpServlet {
   
   
   Rutina miRutina;
-  rutinaModelo rutinaModel;
+  RutinaController rutinaController ;
   String mensaje;
 
   protected void processRequest(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException, NamingException{      
     //miRutinaSession = (RutinaFacade) new InitialContext().lookup("java:module/RutinaFacade");
 
-    List<Rutina> rutinasList;
-    rutinasList = rutinaModel.rutinaLista();
+    List<Rutina> rutinasList = rutinaController.getRutinas();
+
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
     try {
@@ -109,16 +110,14 @@ public class rutinaServlet extends HttpServlet {
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
-    boolean resultado;
-    RutinaController rutinaController = new RutinaController();
-    rutinaModel = new rutinaModelo();
+    ArrayList<String> rutinasCreadas = new ArrayList<String>();
     Integer idRutina = Integer.parseInt(request.getParameter("idRutina"));
     String nombreRutina = request.getParameter("nombreRutina");
-    resultado = rutinaController.validadarRutina(idRutina, nombreRutina);
-    if(resultado){
+    rutinasCreadas = rutinaController.validadarRutina(idRutina);
+    if(rutinasCreadas.get(0).equals("true")){
       miRutina = new Rutina(idRutina);
       miRutina.setNombreRutina(nombreRutina);
-      rutinaModel.crearRutina(miRutina);
+      rutinaController.crearRutina(miRutina);
       mensaje = "Se ha Creado la Rutina con Exito";
     }
     else{

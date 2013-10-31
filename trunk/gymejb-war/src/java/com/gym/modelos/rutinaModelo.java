@@ -19,15 +19,20 @@ import javax.naming.NamingException;
  * @author Miguel
  */
 public class rutinaModelo {
+
   RutinaFacade rutinaFacade = lookupRutinaFacadeBean();
+
+  public void crearRutina(Rutina miRutina) {
+    rutinaFacade.create(miRutina);
+  }
+
+  public List<Rutina> rutinaLista() {
+    return rutinaFacade.findAll();
+  }
   
-    public void crearRutina(Rutina miRutina){
-      rutinaFacade.create(miRutina);
-    }
-    
-    public List<Rutina> rutinaLista(){
-      return rutinaFacade.findAll();
-    }  
+  public Rutina buscarRutina(int idRutina){
+    return rutinaFacade.find(idRutina);
+  }
 
   private RutinaFacade lookupRutinaFacadeBean() {
     try {
