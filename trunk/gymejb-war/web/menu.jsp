@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>MENU CAMBIO</title>
+        <title>GYM</title>
         <link rel = 'stylesheet' href = 'css/style.css' type='text/css' />
         <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
         <script type="text/javascript">
@@ -91,5 +91,8 @@
 
             </iframe>
         </div>
+        <footer>
+          
+        </footer>
     </body>
 </html>
