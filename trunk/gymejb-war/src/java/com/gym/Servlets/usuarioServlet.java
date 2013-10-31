@@ -49,7 +49,7 @@ public class usuarioServlet extends HttpServlet {
       usuario.setContrasena(request.getParameter("contrasena"));
       try {
         miUsuariosession.create(usuario);
-        response.sendRedirect("menu.jsp");
+        out.println("Guardado con Exito...");
       } catch (Exception e) {
       }
     } finally {
