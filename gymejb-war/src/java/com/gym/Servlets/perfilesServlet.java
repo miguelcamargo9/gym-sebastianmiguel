@@ -4,8 +4,12 @@
  */
 package com.gym.Servlets;
 
+import com.gym.entities.Perfil;
+import com.gym.modelos.perfilModelo;
+import com.gym.session.PerfilFacade;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +22,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "perfilesServlet", urlPatterns = {"/perfilesServlet"})
 public class perfilesServlet extends HttpServlet {
-
   /**
    * Processes requests for both HTTP
    * <code>GET</code> and
@@ -34,15 +37,12 @@ public class perfilesServlet extends HttpServlet {
     response.setContentType("text/html;charset=UTF-8");
     PrintWriter out = response.getWriter();
     try {
-      /* TODO output your page here. You may use following sample code. */
-      out.println("<html>");
-      out.println("<head>");
-      out.println("<title>Servlet perfilesServlet</title>");      
-      out.println("</head>");
-      out.println("<body>");
-      out.println("<h1>Servlet perfilesServlet at " + request.getContextPath() + "</h1>");
-      out.println("</body>");
-      out.println("</html>");
+      boolean resultado;
+      perfilModelo modeloperfil = new perfilModelo();
+      resultado = modeloperfil.crearPerfil(request.getParameter("perfil"));
+      if (resultado) {
+        out.print("guardado con exito");
+      }
     } finally {      
       out.close();
     }
