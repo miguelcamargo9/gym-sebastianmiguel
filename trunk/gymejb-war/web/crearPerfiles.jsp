@@ -25,6 +25,7 @@
             </td>
           </tr>
         </table>
+        <input type="submit" value="guardar">
       </fieldset>
     </form>
   </body>
