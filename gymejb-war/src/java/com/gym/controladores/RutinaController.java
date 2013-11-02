@@ -1,18 +1,10 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.gym.controladores;
 
 import com.gym.entities.Rutina;
 import com.gym.modelos.rutinaModelo;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
 
 /**
  *
@@ -21,12 +13,13 @@ import javax.naming.NamingException;
 public class RutinaController {
 
   rutinaModelo rutinaModel;
+  Rutina rutinaCreada;
 
-  public ArrayList<String> validadarRutina(Integer idRutina) { 
+  public ArrayList<String> validadarRutina(Integer idRutina) {
     boolean bandera;
     ArrayList<String> rutinasCreadas = new ArrayList<String>();
     try {
-      Rutina rutinaCreada = rutinaModel.buscarRutina(idRutina);
+      rutinaCreada= rutinaModel.buscarRutina(idRutina);
       bandera = true;
       rutinasCreadas.add("" + bandera);
       rutinasCreadas.add("" + rutinaCreada.getId());
@@ -38,7 +31,7 @@ public class RutinaController {
     }
     return rutinasCreadas;
   }
-
+  
   public List<Rutina> getRutinas() {
     return rutinaModel.rutinaLista();
   }
