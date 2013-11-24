@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+  <ui:composition template="/template.xhtml">
+    <ui:define name="title">
+      <h:outputText value="#{bundle.CreatePermisoTitle}"></h:outputText>
+    </ui:define>
+    <ui:define name="body">
+      <h:panelGroup id="messagePanel" layout="block">
+        <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+      </h:panelGroup>
+      <h:form>
+        <h:panelGrid columns="2">
+          <h:outputLabel value="#{bundle.CreatePermisoLabel_id}" for="id" />
+          <h:inputText id="id" value="#{permisoController.selected.id}" title="#{bundle.CreatePermisoTitle_id}" required="true" requiredMessage="#{bundle.CreatePermisoRequiredMessage_id}"/>
+          <h:outputLabel value="#{bundle.CreatePermisoLabel_permisos}" for="permisos" />
+          <h:inputText id="permisos" value="#{permisoController.selected.permisos}" title="#{bundle.CreatePermisoTitle_permisos}" />
+          <h:outputLabel value="#{bundle.CreatePermisoLabel_estado}" for="estado" />
+          <h:inputText id="estado" value="#{permisoController.selected.estado}" title="#{bundle.CreatePermisoTitle_estado}" />
+          <h:outputLabel value="#{bundle.CreatePermisoLabel_idUsuario}" for="idUsuario" />
+          <h:inputText id="idUsuario" value="#{permisoController.selected.idUsuario}" title="#{bundle.CreatePermisoTitle_idUsuario}" required="true" requiredMessage="#{bundle.CreatePermisoRequiredMessage_idUsuario}"/>
+        </h:panelGrid>
+        <br />
+        <h:commandLink action="#{permisoController.create}" value="#{bundle.CreatePermisoSaveLink}" />
+        <br />
+        <br />
+        <h:commandLink action="#{permisoController.prepareList}" value="#{bundle.CreatePermisoShowAllLink}" immediate="true"/>
+        <br />
+        <br />
+        <h:link outcome="/index" value="#{bundle.CreatePermisoIndexLink}"/>
+      </h:form>
+    </ui:define>
+  </ui:composition>
+
+</html>

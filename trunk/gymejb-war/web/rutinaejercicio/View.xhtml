@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+  <ui:composition template="/template.xhtml">
+    <ui:define name="title">
+      <h:outputText value="#{bundle.ViewRutinaejercicioTitle}"></h:outputText>
+    </ui:define>
+    <ui:define name="body">
+      <h:panelGroup id="messagePanel" layout="block">
+        <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+      </h:panelGroup>
+      <h:form>
+        <h:panelGrid columns="2">
+          <h:outputText value="#{bundle.ViewRutinaejercicioLabel_id}"/>
+          <h:outputText value="#{rutinaejercicioController.selected.id}" title="#{bundle.ViewRutinaejercicioTitle_id}"/>
+          <h:outputText value="#{bundle.ViewRutinaejercicioLabel_duracion}"/>
+          <h:outputText value="#{rutinaejercicioController.selected.duracion}" title="#{bundle.ViewRutinaejercicioTitle_duracion}"/>
+          <h:outputText value="#{bundle.ViewRutinaejercicioLabel_regularidad}"/>
+          <h:outputText value="#{rutinaejercicioController.selected.regularidad}" title="#{bundle.ViewRutinaejercicioTitle_regularidad}"/>
+          <h:outputText value="#{bundle.ViewRutinaejercicioLabel_velocidad}"/>
+          <h:outputText value="#{rutinaejercicioController.selected.velocidad}" title="#{bundle.ViewRutinaejercicioTitle_velocidad}"/>
+          <h:outputText value="#{bundle.ViewRutinaejercicioLabel_distacia}"/>
+          <h:outputText value="#{rutinaejercicioController.selected.distacia}" title="#{bundle.ViewRutinaejercicioTitle_distacia}"/>
+          <h:outputText value="#{bundle.ViewRutinaejercicioLabel_libraslevantar}"/>
+          <h:outputText value="#{rutinaejercicioController.selected.libraslevantar}" title="#{bundle.ViewRutinaejercicioTitle_libraslevantar}"/>
+          <h:outputText value="#{bundle.ViewRutinaejercicioLabel_idUsuario}"/>
+          <h:outputText value="#{rutinaejercicioController.selected.idUsuario}" title="#{bundle.ViewRutinaejercicioTitle_idUsuario}"/>
+          <h:outputText value="#{bundle.ViewRutinaejercicioLabel_idRutina}"/>
+          <h:outputText value="#{rutinaejercicioController.selected.idRutina}" title="#{bundle.ViewRutinaejercicioTitle_idRutina}"/>
+          <h:outputText value="#{bundle.ViewRutinaejercicioLabel_idEjercicio}"/>
+          <h:outputText value="#{rutinaejercicioController.selected.idEjercicio}" title="#{bundle.ViewRutinaejercicioTitle_idEjercicio}"/>
+        </h:panelGrid>
+        <br />
+        <h:commandLink action="#{rutinaejercicioController.destroyAndView}" value="#{bundle.ViewRutinaejercicioDestroyLink}"/>
+        <br />
+        <br />
+        <h:link outcome="Edit" value="#{bundle.ViewRutinaejercicioEditLink}"/>
+        <br />
+        <h:commandLink action="#{rutinaejercicioController.prepareCreate}" value="#{bundle.ViewRutinaejercicioCreateLink}" />
+        <br />
+        <h:commandLink action="#{rutinaejercicioController.prepareList}" value="#{bundle.ViewRutinaejercicioShowAllLink}"/>
+        <br />
+        <br />
+        <h:link outcome="/index" value="#{bundle.ViewRutinaejercicioIndexLink}"/>
+
+      </h:form>
+    </ui:define>
+  </ui:composition>
+
+</html>

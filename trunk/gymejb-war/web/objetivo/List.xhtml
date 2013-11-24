@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+  <ui:composition template="/template.xhtml">
+    <ui:define name="title">
+      <h:outputText value="#{bundle.ListObjetivoTitle}"></h:outputText>
+    </ui:define>
+    <ui:define name="body">
+      <h:form styleClass="jsfcrud_list_form">
+        <h:panelGroup id="messagePanel" layout="block">
+          <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+        </h:panelGroup>
+        <h:outputText escape="false" value="#{bundle.ListObjetivoEmpty}" rendered="#{objetivoController.items.rowCount == 0}"/>
+        <h:panelGroup rendered="#{objetivoController.items.rowCount > 0}">
+          <h:outputText value="#{objetivoController.pagination.pageFirstItem + 1}..#{objetivoController.pagination.pageLastItem + 1}/#{objetivoController.pagination.itemsCount}"/>&nbsp;
+          <h:commandLink action="#{objetivoController.previous}" value="#{bundle.Previous} #{objetivoController.pagination.pageSize}" rendered="#{objetivoController.pagination.hasPreviousPage}"/>&nbsp;
+          <h:commandLink action="#{objetivoController.next}" value="#{bundle.Next} #{objetivoController.pagination.pageSize}" rendered="#{objetivoController.pagination.hasNextPage}"/>&nbsp;
+          <h:dataTable value="#{objetivoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+            <h:column>
+              <f:facet name="header">
+                <h:outputText value="#{bundle.ListObjetivoTitle_id}"/>
+              </f:facet>
+              <h:outputText value="#{item.id}"/>
+            </h:column>
+            <h:column>
+              <f:facet name="header">
+                <h:outputText value="#{bundle.ListObjetivoTitle_descripcion}"/>
+              </f:facet>
+              <h:outputText value="#{item.descripcion}"/>
+            </h:column>
+            <h:column>
+              <f:facet name="header">
+                <h:outputText value="&nbsp;"/>
+              </f:facet>
+              <h:commandLink action="#{objetivoController.prepareView}" value="#{bundle.ListObjetivoViewLink}"/>
+              <h:outputText value=" "/>
+              <h:commandLink action="#{objetivoController.prepareEdit}" value="#{bundle.ListObjetivoEditLink}"/>
+              <h:outputText value=" "/>
+              <h:commandLink action="#{objetivoController.destroy}" value="#{bundle.ListObjetivoDestroyLink}"/>
+            </h:column>
+          </h:dataTable>
+        </h:panelGroup>
+        <br />
+        <h:commandLink action="#{objetivoController.prepareCreate}" value="#{bundle.ListObjetivoCreateLink}"/>
+        <br />
+        <br />
+        <h:link outcome="/index" value="#{bundle.ListObjetivoIndexLink}"/>
+      </h:form>
+    </ui:define>
+  </ui:composition>
+
+</html>

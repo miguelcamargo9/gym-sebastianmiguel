@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+  <ui:composition template="/template.xhtml">
+    <ui:define name="title">
+      <h:outputText value="#{bundle.CreateEjercicioTitle}"></h:outputText>
+    </ui:define>
+    <ui:define name="body">
+      <h:panelGroup id="messagePanel" layout="block">
+        <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+      </h:panelGroup>
+      <h:form>
+        <h:panelGrid columns="2">
+          <h:outputLabel value="#{bundle.CreateEjercicioLabel_id}" for="id" />
+          <h:inputText id="id" value="#{ejercicioController.selected.id}" title="#{bundle.CreateEjercicioTitle_id}" required="true" requiredMessage="#{bundle.CreateEjercicioRequiredMessage_id}"/>
+          <h:outputLabel value="#{bundle.CreateEjercicioLabel_nombreEjercicio}" for="nombreEjercicio" />
+          <h:inputText id="nombreEjercicio" value="#{ejercicioController.selected.nombreEjercicio}" title="#{bundle.CreateEjercicioTitle_nombreEjercicio}" />
+          <h:outputLabel value="#{bundle.CreateEjercicioLabel_explicacion}" for="explicacion" />
+          <h:inputTextarea rows="4" cols="30" id="explicacion" value="#{ejercicioController.selected.explicacion}" title="#{bundle.CreateEjercicioTitle_explicacion}" />
+          <h:outputLabel value="#{bundle.CreateEjercicioLabel_idCategoria}" for="idCategoria" />
+          <h:selectOneMenu id="idCategoria" value="#{ejercicioController.selected.idCategoria}" title="#{bundle.CreateEjercicioTitle_idCategoria}" >
+            <f:selectItems value="#{categoriaController.itemsAvailableSelectOne}"/>
+          </h:selectOneMenu>
+        </h:panelGrid>
+        <br />
+        <h:commandLink action="#{ejercicioController.create}" value="#{bundle.CreateEjercicioSaveLink}" />
+        <br />
+        <br />
+        <h:commandLink action="#{ejercicioController.prepareList}" value="#{bundle.CreateEjercicioShowAllLink}" immediate="true"/>
+        <br />
+        <br />
+        <h:link outcome="/index" value="#{bundle.CreateEjercicioIndexLink}"/>
+      </h:form>
+    </ui:define>
+  </ui:composition>
+
+</html>
