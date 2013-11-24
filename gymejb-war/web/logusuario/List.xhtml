@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+  <ui:composition template="/template.xhtml">
+    <ui:define name="title">
+      <h:outputText value="#{bundle.ListLogusuarioTitle}"></h:outputText>
+    </ui:define>
+    <ui:define name="body">
+      <h:form styleClass="jsfcrud_list_form">
+        <h:panelGroup id="messagePanel" layout="block">
+          <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+        </h:panelGroup>
+        <h:outputText escape="false" value="#{bundle.ListLogusuarioEmpty}" rendered="#{logusuarioController.items.rowCount == 0}"/>
+        <h:panelGroup rendered="#{logusuarioController.items.rowCount > 0}">
+          <h:outputText value="#{logusuarioController.pagination.pageFirstItem + 1}..#{logusuarioController.pagination.pageLastItem + 1}/#{logusuarioController.pagination.itemsCount}"/>&nbsp;
+          <h:commandLink action="#{logusuarioController.previous}" value="#{bundle.Previous} #{logusuarioController.pagination.pageSize}" rendered="#{logusuarioController.pagination.hasPreviousPage}"/>&nbsp;
+          <h:commandLink action="#{logusuarioController.next}" value="#{bundle.Next} #{logusuarioController.pagination.pageSize}" rendered="#{logusuarioController.pagination.hasNextPage}"/>&nbsp;
+          <h:dataTable value="#{logusuarioController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+            <h:column>
+              <f:facet name="header">
+                <h:outputText value="#{bundle.ListLogusuarioTitle_id}"/>
+              </f:facet>
+              <h:outputText value="#{item.id}"/>
+            </h:column>
+            <h:column>
+              <f:facet name="header">
+                <h:outputText value="#{bundle.ListLogusuarioTitle_velocidad}"/>
+              </f:facet>
+              <h:outputText value="#{item.velocidad}"/>
+            </h:column>
+            <h:column>
+              <f:facet name="header">
+                <h:outputText value="#{bundle.ListLogusuarioTitle_ritmoCardiaco}"/>
+              </f:facet>
+              <h:outputText value="#{item.ritmoCardiaco}"/>
+            </h:column>
+            <h:column>
+              <f:facet name="header">
+                <h:outputText value="#{bundle.ListLogusuarioTitle_caloriasQuemadas}"/>
+              </f:facet>
+              <h:outputText value="#{item.caloriasQuemadas}"/>
+            </h:column>
+            <h:column>
+              <f:facet name="header">
+                <h:outputText value="#{bundle.ListLogusuarioTitle_repeticiones}"/>
+              </f:facet>
+              <h:outputText value="#{item.repeticiones}"/>
+            </h:column>
+            <h:column>
+              <f:facet name="header">
+                <h:outputText value="#{bundle.ListLogusuarioTitle_duracion}"/>
+              </f:facet>
+              <h:outputText value="#{item.duracion}"/>
+            </h:column>
+            <h:column>
+              <f:facet name="header">
+                <h:outputText value="#{bundle.ListLogusuarioTitle_distancia}"/>
+              </f:facet>
+              <h:outputText value="#{item.distancia}"/>
+            </h:column>
+            <h:column>
+              <f:facet name="header">
+                <h:outputText value="#{bundle.ListLogusuarioTitle_librasLevantadas}"/>
+              </f:facet>
+              <h:outputText value="#{item.librasLevantadas}"/>
+            </h:column>
+            <h:column>
+              <f:facet name="header">
+                <h:outputText value="#{bundle.ListLogusuarioTitle_idUsuario}"/>
+              </f:facet>
+              <h:outputText value="#{item.idUsuario}"/>
+            </h:column>
+            <h:column>
+              <f:facet name="header">
+                <h:outputText value="#{bundle.ListLogusuarioTitle_idRutina}"/>
+              </f:facet>
+              <h:outputText value="#{item.idRutina}"/>
+            </h:column>
+            <h:column>
+              <f:facet name="header">
+                <h:outputText value="#{bundle.ListLogusuarioTitle_idMaquina}"/>
+              </f:facet>
+              <h:outputText value="#{item.idMaquina}"/>
+            </h:column>
+            <h:column>
+              <f:facet name="header">
+                <h:outputText value="&nbsp;"/>
+              </f:facet>
+              <h:commandLink action="#{logusuarioController.prepareView}" value="#{bundle.ListLogusuarioViewLink}"/>
+              <h:outputText value=" "/>
+              <h:commandLink action="#{logusuarioController.prepareEdit}" value="#{bundle.ListLogusuarioEditLink}"/>
+              <h:outputText value=" "/>
+              <h:commandLink action="#{logusuarioController.destroy}" value="#{bundle.ListLogusuarioDestroyLink}"/>
+            </h:column>
+          </h:dataTable>
+        </h:panelGroup>
+        <br />
+        <h:commandLink action="#{logusuarioController.prepareCreate}" value="#{bundle.ListLogusuarioCreateLink}"/>
+        <br />
+        <br />
+        <h:link outcome="/index" value="#{bundle.ListLogusuarioIndexLink}"/>
+      </h:form>
+    </ui:define>
+  </ui:composition>
+
+</html>

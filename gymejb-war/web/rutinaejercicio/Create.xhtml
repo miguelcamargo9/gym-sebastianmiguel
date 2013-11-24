@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+  <ui:composition template="/template.xhtml">
+    <ui:define name="title">
+      <h:outputText value="#{bundle.CreateRutinaejercicioTitle}"></h:outputText>
+    </ui:define>
+    <ui:define name="body">
+      <h:panelGroup id="messagePanel" layout="block">
+        <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+      </h:panelGroup>
+      <h:form>
+        <h:panelGrid columns="2">
+          <h:outputLabel value="#{bundle.CreateRutinaejercicioLabel_id}" for="id" />
+          <h:inputText id="id" value="#{rutinaejercicioController.selected.id}" title="#{bundle.CreateRutinaejercicioTitle_id}" required="true" requiredMessage="#{bundle.CreateRutinaejercicioRequiredMessage_id}"/>
+          <h:outputLabel value="#{bundle.CreateRutinaejercicioLabel_duracion}" for="duracion" />
+          <h:inputText id="duracion" value="#{rutinaejercicioController.selected.duracion}" title="#{bundle.CreateRutinaejercicioTitle_duracion}" />
+          <h:outputLabel value="#{bundle.CreateRutinaejercicioLabel_regularidad}" for="regularidad" />
+          <h:inputText id="regularidad" value="#{rutinaejercicioController.selected.regularidad}" title="#{bundle.CreateRutinaejercicioTitle_regularidad}" />
+          <h:outputLabel value="#{bundle.CreateRutinaejercicioLabel_velocidad}" for="velocidad" />
+          <h:inputText id="velocidad" value="#{rutinaejercicioController.selected.velocidad}" title="#{bundle.CreateRutinaejercicioTitle_velocidad}" />
+          <h:outputLabel value="#{bundle.CreateRutinaejercicioLabel_distacia}" for="distacia" />
+          <h:inputText id="distacia" value="#{rutinaejercicioController.selected.distacia}" title="#{bundle.CreateRutinaejercicioTitle_distacia}" />
+          <h:outputLabel value="#{bundle.CreateRutinaejercicioLabel_libraslevantar}" for="libraslevantar" />
+          <h:inputText id="libraslevantar" value="#{rutinaejercicioController.selected.libraslevantar}" title="#{bundle.CreateRutinaejercicioTitle_libraslevantar}" />
+          <h:outputLabel value="#{bundle.CreateRutinaejercicioLabel_idUsuario}" for="idUsuario" />
+          <h:selectOneMenu id="idUsuario" value="#{rutinaejercicioController.selected.idUsuario}" title="#{bundle.CreateRutinaejercicioTitle_idUsuario}" required="true" requiredMessage="#{bundle.CreateRutinaejercicioRequiredMessage_idUsuario}">
+            <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"/>
+          </h:selectOneMenu>
+          <h:outputLabel value="#{bundle.CreateRutinaejercicioLabel_idRutina}" for="idRutina" />
+          <h:selectOneMenu id="idRutina" value="#{rutinaejercicioController.selected.idRutina}" title="#{bundle.CreateRutinaejercicioTitle_idRutina}" required="true" requiredMessage="#{bundle.CreateRutinaejercicioRequiredMessage_idRutina}">
+            <f:selectItems value="#{rutinaController.itemsAvailableSelectOne}"/>
+          </h:selectOneMenu>
+          <h:outputLabel value="#{bundle.CreateRutinaejercicioLabel_idEjercicio}" for="idEjercicio" />
+          <h:selectOneMenu id="idEjercicio" value="#{rutinaejercicioController.selected.idEjercicio}" title="#{bundle.CreateRutinaejercicioTitle_idEjercicio}" required="true" requiredMessage="#{bundle.CreateRutinaejercicioRequiredMessage_idEjercicio}">
+            <f:selectItems value="#{ejercicioController.itemsAvailableSelectOne}"/>
+          </h:selectOneMenu>
+        </h:panelGrid>
+        <br />
+        <h:commandLink action="#{rutinaejercicioController.create}" value="#{bundle.CreateRutinaejercicioSaveLink}" />
+        <br />
+        <br />
+        <h:commandLink action="#{rutinaejercicioController.prepareList}" value="#{bundle.CreateRutinaejercicioShowAllLink}" immediate="true"/>
+        <br />
+        <br />
+        <h:link outcome="/index" value="#{bundle.CreateRutinaejercicioIndexLink}"/>
+      </h:form>
+    </ui:define>
+  </ui:composition>
+
+</html>

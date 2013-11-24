@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+  <ui:composition template="/template.xhtml">
+    <ui:define name="title">
+      <h:outputText value="#{bundle.ViewLogusuarioTitle}"></h:outputText>
+    </ui:define>
+    <ui:define name="body">
+      <h:panelGroup id="messagePanel" layout="block">
+        <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+      </h:panelGroup>
+      <h:form>
+        <h:panelGrid columns="2">
+          <h:outputText value="#{bundle.ViewLogusuarioLabel_id}"/>
+          <h:outputText value="#{logusuarioController.selected.id}" title="#{bundle.ViewLogusuarioTitle_id}"/>
+          <h:outputText value="#{bundle.ViewLogusuarioLabel_velocidad}"/>
+          <h:outputText value="#{logusuarioController.selected.velocidad}" title="#{bundle.ViewLogusuarioTitle_velocidad}"/>
+          <h:outputText value="#{bundle.ViewLogusuarioLabel_ritmoCardiaco}"/>
+          <h:outputText value="#{logusuarioController.selected.ritmoCardiaco}" title="#{bundle.ViewLogusuarioTitle_ritmoCardiaco}"/>
+          <h:outputText value="#{bundle.ViewLogusuarioLabel_caloriasQuemadas}"/>
+          <h:outputText value="#{logusuarioController.selected.caloriasQuemadas}" title="#{bundle.ViewLogusuarioTitle_caloriasQuemadas}"/>
+          <h:outputText value="#{bundle.ViewLogusuarioLabel_repeticiones}"/>
+          <h:outputText value="#{logusuarioController.selected.repeticiones}" title="#{bundle.ViewLogusuarioTitle_repeticiones}"/>
+          <h:outputText value="#{bundle.ViewLogusuarioLabel_duracion}"/>
+          <h:outputText value="#{logusuarioController.selected.duracion}" title="#{bundle.ViewLogusuarioTitle_duracion}"/>
+          <h:outputText value="#{bundle.ViewLogusuarioLabel_distancia}"/>
+          <h:outputText value="#{logusuarioController.selected.distancia}" title="#{bundle.ViewLogusuarioTitle_distancia}"/>
+          <h:outputText value="#{bundle.ViewLogusuarioLabel_librasLevantadas}"/>
+          <h:outputText value="#{logusuarioController.selected.librasLevantadas}" title="#{bundle.ViewLogusuarioTitle_librasLevantadas}"/>
+          <h:outputText value="#{bundle.ViewLogusuarioLabel_idUsuario}"/>
+          <h:outputText value="#{logusuarioController.selected.idUsuario}" title="#{bundle.ViewLogusuarioTitle_idUsuario}"/>
+          <h:outputText value="#{bundle.ViewLogusuarioLabel_idRutina}"/>
+          <h:outputText value="#{logusuarioController.selected.idRutina}" title="#{bundle.ViewLogusuarioTitle_idRutina}"/>
+          <h:outputText value="#{bundle.ViewLogusuarioLabel_idMaquina}"/>
+          <h:outputText value="#{logusuarioController.selected.idMaquina}" title="#{bundle.ViewLogusuarioTitle_idMaquina}"/>
+        </h:panelGrid>
+        <br />
+        <h:commandLink action="#{logusuarioController.destroyAndView}" value="#{bundle.ViewLogusuarioDestroyLink}"/>
+        <br />
+        <br />
+        <h:link outcome="Edit" value="#{bundle.ViewLogusuarioEditLink}"/>
+        <br />
+        <h:commandLink action="#{logusuarioController.prepareCreate}" value="#{bundle.ViewLogusuarioCreateLink}" />
+        <br />
+        <h:commandLink action="#{logusuarioController.prepareList}" value="#{bundle.ViewLogusuarioShowAllLink}"/>
+        <br />
+        <br />
+        <h:link outcome="/index" value="#{bundle.ViewLogusuarioIndexLink}"/>
+
+      </h:form>
+    </ui:define>
+  </ui:composition>
+
+</html>

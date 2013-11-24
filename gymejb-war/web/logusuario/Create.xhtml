@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+  <ui:composition template="/template.xhtml">
+    <ui:define name="title">
+      <h:outputText value="#{bundle.CreateLogusuarioTitle}"></h:outputText>
+    </ui:define>
+    <ui:define name="body">
+      <h:panelGroup id="messagePanel" layout="block">
+        <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+      </h:panelGroup>
+      <h:form>
+        <h:panelGrid columns="2">
+          <h:outputLabel value="#{bundle.CreateLogusuarioLabel_id}" for="id" />
+          <h:inputText id="id" value="#{logusuarioController.selected.id}" title="#{bundle.CreateLogusuarioTitle_id}" required="true" requiredMessage="#{bundle.CreateLogusuarioRequiredMessage_id}"/>
+          <h:outputLabel value="#{bundle.CreateLogusuarioLabel_velocidad}" for="velocidad" />
+          <h:inputText id="velocidad" value="#{logusuarioController.selected.velocidad}" title="#{bundle.CreateLogusuarioTitle_velocidad}" />
+          <h:outputLabel value="#{bundle.CreateLogusuarioLabel_ritmoCardiaco}" for="ritmoCardiaco" />
+          <h:inputText id="ritmoCardiaco" value="#{logusuarioController.selected.ritmoCardiaco}" title="#{bundle.CreateLogusuarioTitle_ritmoCardiaco}" />
+          <h:outputLabel value="#{bundle.CreateLogusuarioLabel_caloriasQuemadas}" for="caloriasQuemadas" />
+          <h:inputText id="caloriasQuemadas" value="#{logusuarioController.selected.caloriasQuemadas}" title="#{bundle.CreateLogusuarioTitle_caloriasQuemadas}" />
+          <h:outputLabel value="#{bundle.CreateLogusuarioLabel_repeticiones}" for="repeticiones" />
+          <h:inputText id="repeticiones" value="#{logusuarioController.selected.repeticiones}" title="#{bundle.CreateLogusuarioTitle_repeticiones}" />
+          <h:outputLabel value="#{bundle.CreateLogusuarioLabel_duracion}" for="duracion" />
+          <h:inputText id="duracion" value="#{logusuarioController.selected.duracion}" title="#{bundle.CreateLogusuarioTitle_duracion}" />
+          <h:outputLabel value="#{bundle.CreateLogusuarioLabel_distancia}" for="distancia" />
+          <h:inputText id="distancia" value="#{logusuarioController.selected.distancia}" title="#{bundle.CreateLogusuarioTitle_distancia}" />
+          <h:outputLabel value="#{bundle.CreateLogusuarioLabel_librasLevantadas}" for="librasLevantadas" />
+          <h:inputText id="librasLevantadas" value="#{logusuarioController.selected.librasLevantadas}" title="#{bundle.CreateLogusuarioTitle_librasLevantadas}" />
+          <h:outputLabel value="#{bundle.CreateLogusuarioLabel_idUsuario}" for="idUsuario" />
+          <h:selectOneMenu id="idUsuario" value="#{logusuarioController.selected.idUsuario}" title="#{bundle.CreateLogusuarioTitle_idUsuario}" >
+            <f:selectItems value="#{usuarioController.itemsAvailableSelectOne}"/>
+          </h:selectOneMenu>
+          <h:outputLabel value="#{bundle.CreateLogusuarioLabel_idRutina}" for="idRutina" />
+          <h:selectOneMenu id="idRutina" value="#{logusuarioController.selected.idRutina}" title="#{bundle.CreateLogusuarioTitle_idRutina}" >
+            <f:selectItems value="#{rutinaController.itemsAvailableSelectOne}"/>
+          </h:selectOneMenu>
+          <h:outputLabel value="#{bundle.CreateLogusuarioLabel_idMaquina}" for="idMaquina" />
+          <h:selectOneMenu id="idMaquina" value="#{logusuarioController.selected.idMaquina}" title="#{bundle.CreateLogusuarioTitle_idMaquina}" >
+            <f:selectItems value="#{maquinaController.itemsAvailableSelectOne}"/>
+          </h:selectOneMenu>
+        </h:panelGrid>
+        <br />
+        <h:commandLink action="#{logusuarioController.create}" value="#{bundle.CreateLogusuarioSaveLink}" />
+        <br />
+        <br />
+        <h:commandLink action="#{logusuarioController.prepareList}" value="#{bundle.CreateLogusuarioShowAllLink}" immediate="true"/>
+        <br />
+        <br />
+        <h:link outcome="/index" value="#{bundle.CreateLogusuarioIndexLink}"/>
+      </h:form>
+    </ui:define>
+  </ui:composition>
+
+</html>

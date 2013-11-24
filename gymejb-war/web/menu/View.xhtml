@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+  <ui:composition template="/template.xhtml">
+    <ui:define name="title">
+      <h:outputText value="#{bundle.ViewMenuTitle}"></h:outputText>
+    </ui:define>
+    <ui:define name="body">
+      <h:panelGroup id="messagePanel" layout="block">
+        <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+      </h:panelGroup>
+      <h:form>
+        <h:panelGrid columns="2">
+          <h:outputText value="#{bundle.ViewMenuLabel_id}"/>
+          <h:outputText value="#{menuController.selected.id}" title="#{bundle.ViewMenuTitle_id}"/>
+          <h:outputText value="#{bundle.ViewMenuLabel_padre}"/>
+          <h:outputText value="#{menuController.selected.padre}" title="#{bundle.ViewMenuTitle_padre}"/>
+          <h:outputText value="#{bundle.ViewMenuLabel_orden}"/>
+          <h:outputText value="#{menuController.selected.orden}" title="#{bundle.ViewMenuTitle_orden}"/>
+          <h:outputText value="#{bundle.ViewMenuLabel_nombre}"/>
+          <h:outputText value="#{menuController.selected.nombre}" title="#{bundle.ViewMenuTitle_nombre}"/>
+          <h:outputText value="#{bundle.ViewMenuLabel_enlace}"/>
+          <h:outputText value="#{menuController.selected.enlace}" title="#{bundle.ViewMenuTitle_enlace}"/>
+          <h:outputText value="#{bundle.ViewMenuLabel_activo}"/>
+          <h:outputText value="#{menuController.selected.activo}" title="#{bundle.ViewMenuTitle_activo}"/>
+        </h:panelGrid>
+        <br />
+        <h:commandLink action="#{menuController.destroyAndView}" value="#{bundle.ViewMenuDestroyLink}"/>
+        <br />
+        <br />
+        <h:link outcome="Edit" value="#{bundle.ViewMenuEditLink}"/>
+        <br />
+        <h:commandLink action="#{menuController.prepareCreate}" value="#{bundle.ViewMenuCreateLink}" />
+        <br />
+        <h:commandLink action="#{menuController.prepareList}" value="#{bundle.ViewMenuShowAllLink}"/>
+        <br />
+        <br />
+        <h:link outcome="/index" value="#{bundle.ViewMenuIndexLink}"/>
+
+      </h:form>
+    </ui:define>
+  </ui:composition>
+
+</html>
