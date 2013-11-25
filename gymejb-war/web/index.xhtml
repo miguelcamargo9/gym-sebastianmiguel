@@ -6,7 +6,27 @@
     <title>Bienvenido</title>
     <script type="text/javascript">
       function usuarioInvalido() {
-         window.location = "faces/login/Login.xhtml";
+        var variable = '#{tipoUsuario}';
+        alert(typeof variable);
+        alert(variable);
+        if (typeof variable == "undefined") {
+          window.location = "faces/login/Login.xhtml";   
+        } else {
+          if ( variable == '') {
+            window.location = "faces/login/Login.xhtml";   
+          }
+          switch(variable) {
+            case "1":
+              window.location = "menuadmin.xhtml";
+              break;
+            case "2":
+              window.location = "menuentrenador.xhtml";
+              break;
+            case "3":
+              window.location = "menuusuario.xhtml";
+              break;
+          }
+        }
       }
     </script>
   </h:head>
