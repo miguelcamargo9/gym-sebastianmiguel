@@ -10,7 +10,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Untitled Document</title>
+    <title>GYM EJB</title>
     <style>
 
       html,
@@ -455,7 +455,6 @@
       }
     </style>
   </head>
-
   <body>
     <form id="login" action="LoginServlet" method="post">
       <h1 id="ff-proof" class="ribbon">GYM</h1>
