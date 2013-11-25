@@ -21,6 +21,8 @@ import javax.faces.convert.FacesConverter;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
+import javax.jms.Session;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -35,7 +37,16 @@ public class LoginController {
   private int id;
   private String password;
   private boolean estadologin;
+  private int tipousuario;
 
+  public int getTipousuario() {
+    return tipousuario;
+  }
+
+  public void setTipousuario(int tipousuario) {
+    this.tipousuario = tipousuario;
+  }
+  
   /**
    * Creates a new instance of LoginController
    */
@@ -57,6 +68,8 @@ public class LoginController {
   public void setPassword(String password) {
     this.password = password;
   }
+  
+  
 
   public void generarLogin() {
     Usuario usuario;
@@ -67,12 +80,14 @@ public class LoginController {
     if (usuario != null && usuario.getContrasena().equals(password)) {
       this.estadologin = true;
       tipoUsuario = usuario.getIdTipoUsuario();
+      FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("tipoUsuario", tipoUsuario);
+      FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("nombreUsuario", usuario.getNombreUsuario());
     } else {
       this.estadologin = false;
     }
     if (this.estadologin) {
       try {
-        switch(tipoUsuario) {
+        switch (tipoUsuario) {
           case 1:
             FacesContext.getCurrentInstance().getExternalContext().redirect("../menuadmin.xhtml");
             break;
